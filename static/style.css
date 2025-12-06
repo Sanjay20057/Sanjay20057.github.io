@@ -449,43 +449,50 @@ body::before {
     max-width: 100%;
     height: auto;
 }
-/* --- NAVBAR FIX FOR MOBILE --- */
-nav {
+/* FIX SKILLS MOBILE */
+.skill-category-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    flex-wrap: wrap;   /* allows items to move into next line */
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
 }
 
-nav ul {
+.skill-category {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* FIX PROJECT ROWS */
+.project-row {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;   /* lets menu wrap on mobile */
-    padding: 0;
-    margin: 0;
-    list-style: none;
+    margin-bottom: 40px;
+    align-items: center;
 }
 
-nav ul li {
-    margin: 5px 0;
+.project-row-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
 }
 
-/* On mobile, stack links in center */
+.project-row-details {
+    flex: 1;
+}
+
+/* MOBILE FIX */
 @media (max-width: 768px) {
-    nav {
+    .project-row {
         flex-direction: column;
         text-align: center;
     }
 
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
+    .project-row-image img {
+        max-width: 90%;
     }
 
-    nav a {
-        font-size: 18px;
+    .skill-category {
+        max-width: 100%;
+        text-align: center;
     }
 }
-
-
