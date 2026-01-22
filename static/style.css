@@ -30,6 +30,7 @@ body {
 }
 
 nav {
+    position: relative;   /* ✅ ADD THIS */
     max-width: 1200px;
     margin: auto;
     padding: 16px 24px;
@@ -337,6 +338,26 @@ body.dark .skill-list span {
 ===================== */
 @media (max-width: 768px) {
 
+    .nav-links {
+    position: absolute;
+    top: calc(100% + 12px); /* stays under navbar */
+    right: 16px;
+    width: 220px;
+    display: none;
+    flex-direction: column;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    z-index: 999;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+
     .menu-toggle {
         display: block;
         font-size: 28px;
@@ -470,4 +491,24 @@ body.dark .skill-list span {
     #resumeModal iframe {
         height: calc(100% - 52px);
     }
+}
+
+.project-tech {
+    margin: 14px 0 22px;
+}
+
+.project-tech span {
+    display: inline-block;
+    margin: 6px 8px 0 0;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #3730a3;
+}
+
+body.dark .project-tech span {
+    background: #1e293b;
+    color: #c7d2fe;
 }
