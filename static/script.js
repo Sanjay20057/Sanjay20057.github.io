@@ -146,9 +146,9 @@ backTop.addEventListener("mouseleave", () => {
 });
 
 
-    /* =====================
+   /* =====================
    RESUME MODAL
-==================== */
+===================== */
 const modal = document.createElement("div");
 modal.id = "resumeModal";
 modal.style.display = "none";
@@ -166,32 +166,36 @@ modal.innerHTML = `
     </div>
 `;
 
-
 document.body.appendChild(modal);
 
-const cvBtn = document.querySelector(".cv-btn");
+// Preview Button
+const previewBtn = document.querySelector(".preview-btn");
 
-if (cvBtn) {
-    cvBtn.addEventListener("click", e => {
+if (previewBtn) {
+    previewBtn.addEventListener("click", (e) => {
         e.preventDefault();
         modal.style.display = "flex";
-        document.body.style.overflow = "hidden"; // prevent background scroll
+        document.body.style.overflow = "hidden";
     });
 }
 
+// Close when clicking outside
 modal.addEventListener("click", () => {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
 });
 
+// Prevent close on modal click
 modal.querySelector(".modal-box").addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent closing when clicking inside modal
+    e.stopPropagation();
 });
 
+// Close button
 modal.querySelector(".modal-close").addEventListener("click", () => {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
 });
+
 
     /* =====================
        AOS
@@ -200,3 +204,14 @@ modal.querySelector(".modal-close").addEventListener("click", () => {
         AOS.init({ duration: 800, once: true });
     }
 });
+
+/* =====================
+   FIX MENU ON ROTATION
+===================== */
+window.addEventListener("orientationchange", () => {
+    const navLinks = document.getElementById("nav-links");
+    if (navLinks) {
+        navLinks.classList.remove("active");
+    }
+});
+
