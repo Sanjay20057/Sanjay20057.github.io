@@ -512,3 +512,47 @@ body.dark .project-tech span {
     background: #1e293b;
     color: #c7d2fe;
 }
+
+.resume-preview {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.resume-open-btn {
+    font-size: 18px;
+    padding: 18px 36px;
+    border-radius: 18px;
+}
+
+/* ============================
+   RESUME – MOBILE FIX ONLY
+============================ */
+
+/* default (desktop) */
+.resume-iframe {
+    width: 100%;
+    height: 85vh;
+    border: none;
+}
+
+.resume-mobile {
+    display: none;
+}
+
+/* mobile only */
+@media (max-width: 768px) {
+    .resume-iframe {
+        display: none; /* hide broken PDF preview */
+    }
+
+    .resume-mobile {
+        display: block;
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .resume-open-btn {
+        font-size: 18px;
+        padding: 14px 28px;
+    }
+}
