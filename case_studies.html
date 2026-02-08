@@ -4,21 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sanjay Sharma | Case Studies</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Logo/Logo.png') }}" />
-
-    <!-- Main Portfolio CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="icon" type="image/png" href="static/Logo/Logo.png" />
+    <link rel="stylesheet" href="static/style.css" />
+    <script defer src="static/script.js"></script>
 
     <style>
-        /* Override body for case study page */
         body {
             background-color: var(--navy);
             color: var(--slate);
             overflow-x: hidden;
         }
 
-        /* Main Layout */
         .case-study-wrapper {
             min-height: 100vh;
             padding-top: var(--nav-height);
@@ -33,7 +29,6 @@
             padding: 60px 50px;
         }
 
-        /* Mobile Navigation Tabs */
         .mobile-case-nav {
             display: none;
             background: var(--lightest-navy);
@@ -80,7 +75,6 @@
             background: rgba(100, 255, 218, 0.1);
         }
 
-        /* Sidebar Navigation - Desktop */
         .case-sidebar {
             position: sticky;
             top: calc(var(--nav-height) + 20px);
@@ -139,7 +133,6 @@
             color: var(--green);
         }
 
-        /* Content Area */
         .case-content {
             max-width: 900px;
         }
@@ -164,7 +157,6 @@
             }
         }
 
-        /* Card Header */
         .case-card h2 {
             color: var(--lightest-slate);
             font-size: clamp(24px, 5vw, 40px);
@@ -190,7 +182,6 @@
             font-weight: 500;
         }
 
-        /* Case Sections */
         .case-section {
             margin-bottom: 35px;
             padding-bottom: 25px;
@@ -245,7 +236,6 @@
             font-size: 20px;
         }
 
-        /* Navigation Buttons */
         .case-nav-buttons {
             display: flex;
             gap: 12px;
@@ -316,7 +306,6 @@
             width: 0;
         }
 
-        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -354,7 +343,6 @@
             transform: translateY(-2px);
         }
 
-        /* Loading Animation */
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
@@ -367,7 +355,6 @@
                         transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
 
-        /* Tablet Styles */
         @media (max-width: 1080px) {
             .case-layout {
                 padding: 50px 40px;
@@ -379,7 +366,6 @@
             }
         }
 
-        /* Mobile Styles - COMPLETELY FIXED VERSION */
         @media (max-width: 768px) {
             .case-study-wrapper {
                 padding-top: 0;
@@ -389,22 +375,19 @@
                 grid-template-columns: 1fr;
                 padding: 0;
                 gap: 0;
-                /* Add padding-top to account for BOTH fixed headers */
-                padding-top: 122px; /* Main nav (70px) + Mobile tabs (52px) */
+                padding-top: 122px;
             }
 
-            /* Hide desktop sidebar on mobile */
             .case-sidebar {
                 display: none;
             }
 
-            /* Show mobile tabs */
             .mobile-case-nav {
                 display: block;
             }
 
             .case-content {
-                padding: 30px 20px; /* Normal padding, layout handles the top offset */
+                padding: 30px 20px;
                 max-width: 100%;
             }
 
@@ -478,10 +461,9 @@
             }
         }
 
-        /* Small Mobile Styles */
         @media (max-width: 480px) {
             .case-layout {
-                padding-top: 122px; /* Same offset for smaller screens */
+                padding-top: 122px;
             }
 
             .case-content {
@@ -520,7 +502,6 @@
             }
         }
 
-        /* Touch device optimization */
         @media (hover: none) and (pointer: coarse) {
             .case-link:hover,
             .nav-btn:hover {
@@ -541,11 +522,10 @@
 
 <body>
 
-    <!-- HEADER NAV -->
     <header class="navbar fade-up">
         <nav>
             <div class="logo">
-                <a href="/">
+                <a href="index.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100">
                         <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"
                                  fill="none"
@@ -571,16 +551,17 @@
                 <span></span>
             </div>
             <div class="nav-links" id="nav-links">
-                <a href="/#about"><span class="nav-number">01.</span> About</a>
-                <a href="/#experience"><span class="nav-number">02.</span> Skills</a>
-                <a href="/#work"><span class="nav-number">03.</span> Project</a>
-                <a href="/#contact"><span class="nav-number">04.</span> Contact</a>
-                <a href="/resume" class="resume-btn">Resume</a>
+                <a href="index.html#about"><span class="nav-number">01.</span> About</a>
+                <a href="index.html#experience"><span class="nav-number">02.</span> Experience</a>
+                <a href="index.html#skills"><span class="nav-number">03.</span> Skills</a>
+                <a href="index.html#work"><span class="nav-number">04.</span> Project</a>
+                <a href="index.html#contact"><span class="nav-number">05.</span> Contact</a>
+                <a href="certificates.html"><span class="nav-number">06.</span> Achivements</a>
+                <a href="resume.html" class="resume-btn">Resume</a>
             </div>
         </nav>
     </header>
 
-    <!-- MOBILE NAVIGATION TABS -->
     <div class="mobile-case-nav" id="mobileNav">
         <div class="mobile-nav-container">
             <button class="mobile-case-tab active" data-target="spotify">Spotify</button>
@@ -591,11 +572,9 @@
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div class="case-study-wrapper">
         <div class="case-layout">
 
-            <!-- SIDEBAR NAVIGATION - Desktop Only -->
             <aside class="case-sidebar fade-up">
                 <h3>Case Studies</h3>
                 <div class="case-nav-list">
@@ -607,10 +586,8 @@
                 </div>
             </aside>
 
-            <!-- CONTENT AREA -->
             <main class="case-content">
 
-                <!-- SPOTIFY CASE STUDY -->
                 <div class="case-card active fade-up" id="spotify">
                     <h2>Spotify Real-Time Recommendation System</h2>
                     <div class="case-tags">
@@ -657,12 +634,11 @@
 
                     <div class="case-nav-buttons">
                         <button class="nav-btn prevBtn" disabled>← Previous</button>
-                        <a href="/" class="nav-btn">🏠 Home</a>
+                        <a href="index.html" class="nav-btn">🏠 Home</a>
                         <button class="nav-btn nextBtn">Next →</button>
                     </div>
                 </div>
 
-                <!-- CYBER THREAT CASE STUDY -->
                 <div class="case-card fade-up" id="cyber">
                     <h2>Cyber Threat Detection Suite</h2>
                     <div class="case-tags">
@@ -704,12 +680,11 @@
 
                     <div class="case-nav-buttons">
                         <button class="nav-btn prevBtn">← Previous</button>
-                        <a href="/" class="nav-btn">🏠 Home</a>
+                        <a href="index.html" class="nav-btn">🏠 Home</a>
                         <button class="nav-btn nextBtn">Next →</button>
                     </div>
                 </div>
 
-                <!-- IPL CASE STUDY -->
                 <div class="case-card fade-up" id="ipl">
                     <h2>IPL Data Analysis Dashboard</h2>
                     <div class="case-tags">
@@ -751,12 +726,11 @@
 
                     <div class="case-nav-buttons">
                         <button class="nav-btn prevBtn">← Previous</button>
-                        <a href="/" class="nav-btn">🏠 Home</a>
+                        <a href="index.html" class="nav-btn">🏠 Home</a>
                         <button class="nav-btn nextBtn">Next →</button>
                     </div>
                 </div>
 
-                <!-- MOVIE CASE STUDY -->
                 <div class="case-card fade-up" id="movie">
                     <h2>Movie Recommender System</h2>
                     <div class="case-tags">
@@ -798,12 +772,11 @@
 
                     <div class="case-nav-buttons">
                         <button class="nav-btn prevBtn">← Previous</button>
-                        <a href="/" class="nav-btn">🏠 Home</a>
+                        <a href="index.html" class="nav-btn">🏠 Home</a>
                         <button class="nav-btn nextBtn">Next →</button>
                     </div>
                 </div>
 
-                <!-- CAR PRICE CASE STUDY -->
                 <div class="case-card fade-up" id="car">
                     <h2>Car Price Prediction</h2>
                     <div class="case-tags">
@@ -845,7 +818,7 @@
 
                     <div class="case-nav-buttons">
                         <button class="nav-btn prevBtn">← Previous</button>
-                        <a href="/" class="nav-btn">🏠 Home</a>
+                        <a href="index.html" class="nav-btn">🏠 Home</a>
                         <button class="nav-btn nextBtn" disabled>Next →</button>
                     </div>
                 </div>
@@ -855,13 +828,11 @@
         </div>
     </div>
 
-    <!-- BACK TO TOP BUTTON -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         ↑
     </button>
 
     <script>
-        // Case Study Navigation
         const desktopLinks = document.querySelectorAll(".case-link");
         const mobileTabs = document.querySelectorAll(".mobile-case-tab");
         const cards = document.querySelectorAll(".case-card");
@@ -870,7 +841,6 @@
 
         const projectIds = ['spotify', 'cyber', 'ipl', 'movie', 'car'];
 
-        // Activate a project by ID
         function activate(id) {
             desktopLinks.forEach(l => l.classList.remove("active"));
             mobileTabs.forEach(t => t.classList.remove("active"));
@@ -887,7 +857,6 @@
             }
             if (card) {
                 card.classList.add("active");
-                // Always scroll to top when switching case studies
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
 
@@ -976,7 +945,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Swipe gestures for mobile
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -1004,9 +972,8 @@
             }
         }
     </script>
-    <!-- ENHANCED FOOTER -->
+
 <footer class="fade-up">
-    <!-- Mobile Social Icons -->
     <div class="footer-social-mobile">
         <a href="https://github.com/Sanjay20057" target="_blank" aria-label="GitHub">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
@@ -1018,8 +985,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         </a>
     </div>
-
-    <!-- Footer Text with GitHub Link -->
     <a href="https://github.com/Sanjay20057/Portfolio" target="_blank" rel="noopener noreferrer" class="footer-link">
         <p>Designed & Built by Sanjay Sharma</p>
     </a>
