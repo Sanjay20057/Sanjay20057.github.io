@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sanjay Sharma | Resume</title>
-    <link rel="icon" type="image/png" href="static/Logo/Logo.png" />
-    <link rel="stylesheet" href="static/style.css" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Logo/Logo.png') }}" />
+
+    <!-- Main Portfolio CSS -->
+    <link rel="static/style.css" />
     <script defer src="static/script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Match portfolio dark theme */
         body {
             background-color: var(--navy);
             color: var(--slate);
         }
 
+        /* Main Container */
         .resume-wrapper {
             min-height: 100vh;
             padding-top: var(--nav-height);
@@ -26,6 +30,7 @@
             padding: 60px 150px;
         }
 
+        /* Back Link */
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -48,6 +53,7 @@
             content: "← ";
         }
 
+        /* Header Section */
         .resume-header {
             text-align: center;
             margin-bottom: 50px;
@@ -66,6 +72,7 @@
             margin-bottom: 30px;
         }
 
+        /* Action Buttons */
         .resume-actions {
             display: flex;
             gap: 20px;
@@ -101,6 +108,7 @@
             background-color: var(--green-tint);
         }
 
+        /* Resume Viewer Card */
         .resume-viewer {
             background-color: var(--light-navy);
             border-radius: var(--border-radius);
@@ -118,8 +126,91 @@
             height: auto;
             display: block;
             border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
 
+        .resume-viewer img:hover {
+            transform: scale(1.02);
+        }
+
+        /* ─── MODAL (from certificates.html) ─── */
+        .resume-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10,25,47,.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .resume-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: modalFadeIn .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .resume-modal-content {
+            position: relative;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            animation: modalSlideUp .4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        @keyframes modalSlideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .resume-modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 24px 48px rgba(0,0,0,.5);
+        }
+
+        .resume-modal-close {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: var(--light-navy);
+            border: 1px solid var(--green);
+            color: var(--green);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all .25s cubic-bezier(0.645, 0.045, 0.355, 1);
+            z-index: 1001;
+        }
+
+        .resume-modal-close:hover {
+            background: var(--green);
+            color: var(--navy);
+            transform: rotate(90deg);
+        }
+
+        .resume-modal-close svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Animations */
         .fade-up {
             opacity: 0;
             transform: translateY(30px);
@@ -132,11 +223,7 @@
                         transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
 
-        .icon {
-            width: 20px;
-            height: 20px;
-        }
-
+        /* Mobile Responsiveness */
         @media (max-width: 1080px) {
             .resume-container {
                 padding: 60px 100px;
@@ -165,6 +252,17 @@
             .resume-viewer {
                 padding: 20px;
             }
+
+            .resume-modal-close {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .resume-modal-content {
+                max-width: 90%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -179,32 +277,39 @@
             .resume-header p {
                 font-size: var(--fz-md);
             }
+
+            .resume-modal-content {
+                max-width: 95%;
+            }
+        }
+
+        /* Icon styles */
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Touch device optimization */
+        @media (hover: none) and (pointer: coarse) {
+            .resume-viewer img:hover {
+                transform: none;
+            }
+
+            .resume-viewer img:active {
+                transform: scale(1.02);
+            }
         }
     </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header class="navbar">
     <nav>
         <div class="logo">
             <a href="/">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100">
-                    <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="2.5"
-                             stroke-linecap="round"
-                             stroke-linejoin="round"/>
-                    <text x="50"
-                          y="62"
-                          text-anchor="middle"
-                          fill="currentColor"
-                          font-size="32"
-                          font-family="Arial, sans-serif"
-                          font-weight="normal"
-                          letter-spacing="2">SS</text>
-                </svg>
+                <img src="{{ url_for('static', filename='1000015565.png') }}" alt="Sanjay Sharma" width="50" height="50">
             </a>
         </div>
 
@@ -215,27 +320,31 @@
         </div>
 
         <div class="nav-links" id="nav-links">
-            <a href="index.html#about"><span class="nav-number">01.</span> About</a>
-            <a href="index.html#experience"><span class="nav-number">02.</span> Skills</a>
-            <a href="index.html#work"><span class="nav-number">03.</span> Project</a>
-            <a href="index.html#contact"><span class="nav-number">04.</span> Contact</a>
-            <a href="resume.html" class="resume-btn">Resume</a>
+            <a href="/#about"><span class="nav-number">01.</span> About</a>
+            <a href="/#experience"><span class="nav-number">02.</span> Skills</a>
+            <a href="/#work"><span class="nav-number">03.</span> Project</a>
+            <a href="/#contact"><span class="nav-number">04.</span> Contact</a>
+            <a href="/resume" class="resume-btn">Resume</a>
         </div>
     </nav>
 </header>
 
+<!-- MAIN CONTENT -->
 <div class="resume-wrapper">
     <div class="resume-container">
 
-        <a href="index.html" class="back-link">Back to Portfolio</a>
+        <!-- Back Link -->
+        <a href="/" class="back-link">Back to Portfolio</a>
 
+        <!-- Header -->
         <div class="resume-header">
             <h1 class="fade-up">My Resume</h1>
             <p class="fade-up">Data Scientist | Machine Learning Engineer | Python Developer</p>
         </div>
 
+        <!-- Action Buttons -->
         <div class="resume-actions fade-up">
-            <a href="static/Sanjay_Resume.pdf" download class="action-btn primary">
+            <a href="{{ url_for('static', filename='Sanjay_Resume.pdf') }}" download class="action-btn primary">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="7 10 12 15 17 10"></polyline>
@@ -243,14 +352,16 @@
                 </svg>
                 Download PDF
             </a>
-            <a href="case_studies.html#spotify" class="action-btn">
+            <a href="/case-studies#spotify" class="action-btn">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
                 </svg>
                 View Case Studies
             </a>
-            <a href="index.html#contact" class="action-btn">
+            <a href="/#contact" class="action-btn">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                     <polyline points="22,6 12,13 2,6"></polyline>
@@ -259,10 +370,12 @@
             </a>
         </div>
 
+        <!-- Resume Viewer -->
         <div class="resume-viewer fade-up">
-            <img src="static/Resume_Image/Sanjay_Resume_image.jpg"
+            <img src="static/Resume_image/Sanjay_Resume_image.jpg"
                  alt="Sanjay Sharma Resume"
-                 loading="lazy">
+                 loading="lazy"
+                 onclick="openResumeModal()">
         </div>
 
     </div>
@@ -282,6 +395,7 @@
 </div>
 
 <script>
+// Mobile menu functionality (from your existing script.js)
 const mobileMenu = document.getElementById("mobile-menu");
 const navLinks = document.getElementById("nav-links");
 
@@ -300,14 +414,52 @@ if (mobileMenu && navLinks) {
     });
 }
 
-document.querySelectorAll('a[href^="index.html#"]').forEach(anchor => {
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href').substring(11);
-        window.location.href = 'index.html#' + targetId;
+        const targetId = this.getAttribute('href').substring(2);
+        window.location.href = '/' + this.getAttribute('href').substring(1);
     });
 });
 
+// Resume Modal Functions
+function openResumeModal() {
+    console.log('Opening resume modal');
+    const modal = document.getElementById('resumeModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeResumeModal() {
+    console.log('Closing resume modal');
+    const modal = document.getElementById('resumeModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// Close modal when clicking on the background
+document.getElementById('resumeModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeResumeModal();
+    }
+});
+
+// Close modal on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('resumeModal');
+        if (modal && modal.classList.contains('active')) {
+            closeResumeModal();
+        }
+    }
+});
+
+// Fade-up animations on page load
 window.addEventListener('load', () => {
     const fadeElements = document.querySelectorAll('.fade-up');
     fadeElements.forEach((element, index) => {
@@ -316,9 +468,14 @@ window.addEventListener('load', () => {
         }, index * 100);
     });
 });
+
+// Log when page loads
+console.log('Resume page loaded successfully');
 </script>
 
+<!-- ENHANCED FOOTER -->
 <footer class="fade-up">
+    <!-- Mobile Social Icons -->
     <div class="footer-social-mobile">
         <a href="https://github.com/Sanjay20057" target="_blank" aria-label="GitHub">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
@@ -330,6 +487,8 @@ window.addEventListener('load', () => {
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         </a>
     </div>
+
+    <!-- Footer Text with GitHub Link -->
     <a href="https://github.com/Sanjay20057/Portfolio" target="_blank" rel="noopener noreferrer" class="footer-link">
         <p>Designed & Built by Sanjay Sharma</p>
     </a>
@@ -337,8 +496,3 @@ window.addEventListener('load', () => {
 
 </body>
 </html>
-
-
-
-
-
