@@ -7,8 +7,8 @@
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='Logo/Logo.png') }}" />
 
     <!-- Main Portfolio CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for(filename='style.css') }}" />
+    <script defer src="{{ url_for(filename='script.js') }}"></script>
 
     <style>
         body {
@@ -98,3 +98,4 @@
         }
 
         .error-btn:hover {
+
