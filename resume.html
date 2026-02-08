@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sanjay Sharma | Resume</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Logo/Logo.png') }}" />
-
-    <!-- Main Portfolio CSS -->
-    <link rel="static/style.css" />
+    <link rel="icon" type="image/png" href="static/Logo/Logo.png" />
+    <link rel="stylesheet" href="static/style.css" />
     <script defer src="static/script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -344,7 +342,7 @@
 
         <!-- Action Buttons -->
         <div class="resume-actions fade-up">
-            <a href="{{ url_for('static', filename='Sanjay_Resume.pdf') }}" download class="action-btn primary">
+            <a href="static/Sanjay_Resume.pdf" download class="action-btn primary">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="7 10 12 15 17 10"></polyline>
@@ -352,7 +350,7 @@
                 </svg>
                 Download PDF
             </a>
-            <a href="/case-studies#spotify" class="action-btn">
+            <a href="case_studies.html#spotify" class="action-btn">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
@@ -361,7 +359,7 @@
                 </svg>
                 View Case Studies
             </a>
-            <a href="/#contact" class="action-btn">
+            <a href="index.html#contact" class="action-btn">
                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                     <polyline points="22,6 12,13 2,6"></polyline>
