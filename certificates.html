@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sanjay Sharma | Certificates</title>
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Logo/Logo.png') }}" />
-
-    <!-- Main Portfolio CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+    <link rel="icon" type="image/png" href="static/Logo/Logo.png" />
+    <link rel="stylesheet" href="static/style.css" />
+    <script defer src="static/script.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
@@ -407,7 +405,7 @@
 <header class="navbar fade-up">
     <nav>
         <div class="logo">
-            <a href="/">
+            <a href="index.html">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100">
                     <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5"
                              fill="none"
@@ -433,11 +431,11 @@
             <span></span>
         </div>
         <div class="nav-links" id="nav-links">
-            <a href="/#about"><span class="nav-number">01.</span> About</a>
-            <a href="/#experience"><span class="nav-number">02.</span> Skills</a>
-            <a href="/#work"><span class="nav-number">03.</span> Project</a>
-            <a href="/#contact"><span class="nav-number">04.</span> Contact</a>
-            <a href="/resume" class="resume-btn">Resume</a>
+            <a href="index.html#about"><span class="nav-number">01.</span> About</a>
+            <a href="index.html#experience"><span class="nav-number">02.</span> Skills</a>
+            <a href="index.html#work"><span class="nav-number">03.</span> Project</a>
+            <a href="index.html#contact"><span class="nav-number">04.</span> Contact</a>
+            <a href="resume.html" class="resume-btn">Resume</a>
         </div>
     </nav>
 </header>
@@ -460,7 +458,7 @@
         <!-- Certificate 4: RedKross -->
         <article class="cert-card fade-up" id="redkross">
             <div class="cert-header">
-                <img src="{{ url_for('static', filename='Logo/Redkross-Research-Foundation-Logo.png') }}"
+                <img src="static/Logo/Redkross-Research-Foundation-Logo.png"
                      alt="RedKross Logo"
                      class="cert-logo">
                 <div class="cert-title-area">
@@ -483,13 +481,13 @@
 
             <div class="cert-preview">
                 <div class="cert-preview-img" onclick="openModal('redkross')">
-                    <img src="{{ url_for('static', filename='Certificate_images/Gemini_Generated_Image_pz42gnpz42gnpz42.png') }}"
+                    <img src="static/Certificate_images/Gemini_Generated_Image_pz42gnpz42gnpz42.png"
                          alt="RedKross Certificate">
                 </div>
             </div>
 
             <div class="cert-actions">
-                <a href="{{ url_for('static', filename='Certificate_images/Gemini_Generated_Image_pz42gnpz42gnpz42.png') }}"
+                <a href="static/Certificate_images/Gemini_Generated_Image_pz42gnpz42gnpz42.png"
                    class="cert-btn"
                    download>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -505,7 +503,7 @@
         <!-- Certificate 3: Data Analytics From Deloitte -->
         <article class="cert-card fade-up" id="certificate4">
             <div class="cert-header">
-                <img src="{{ url_for('static', filename='Logo/Deloitte logo.jpeg') }}"
+                <img src="static/Logo/Deloitte logo.jpeg"
                      alt="Deloitte Logo"
                      class="cert-logo">
                 <div class="cert-title-area">
@@ -524,13 +522,13 @@
 
             <div class="cert-preview">
                 <div class="cert-preview-img" onclick="openModal('certificate4')">
-                    <img src="{{ url_for('static', filename='Certificate_images/Deloitte Australia - Data Analytics Job Simulation.png') }}"
+                    <img src="static/Certificate_images/Deloitte Australia - Data Analytics Job Simulation.png"
                          alt="Data Analytics Job Simulation Certificate">
                 </div>
             </div>
 
             <div class="cert-actions">
-                <a href="{{ url_for('static', filename='Certificate_pdf/Deloitte Australia - Data Analytics Job Simulation.pdf') }}"
+                <a href="static/Certificate_pdf/Deloitte Australia - Data Analytics Job Simulation.pdf"
                    class="cert-btn"
                    download>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -546,7 +544,7 @@
         <!-- Certificate 1: Function in Python -->
         <article class="cert-card fade-up" id="certificate2">
             <div class="cert-header">
-                <img src="{{ url_for('static', filename='Logo/Great-Learning-Logo.png') }}"
+                <img src="static/Logo/Great-Learning-Logo.png"
                      alt="Great Learning Logo"
                      class="cert-logo">
                 <div class="cert-title-area">
@@ -565,13 +563,13 @@
 
             <div class="cert-preview">
                 <div class="cert-preview-img" onclick="openModal('certificate2')">
-                    <img src="{{ url_for('static', filename='Certificate_images/Function-in-Python.jpg') }}"
+                    <img src="static/Certificate_images/Function-in-Python.jpg"
                          alt="Function in Python Certificate">
                 </div>
             </div>
 
             <div class="cert-actions">
-                <a href="{{ url_for('static', filename='Certificate_pdf/Function-in-Python.pdf') }}"
+                <a href="static/Certificate_pdf/Function-in-Python.pdf"
                    class="cert-btn"
                    download>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -587,7 +585,7 @@
         <!-- Certificate 3: Introduction of R -->
         <article class="cert-card fade-up" id="certificate3">
             <div class="cert-header">
-                <img src="{{ url_for('static', filename='Logo/Great-Learning-Logo.png') }}"
+                <img src="static/Logo/Great-Learning-Logo.png"
                      alt="Great Learning Logo"
                      class="cert-logo">
                 <div class="cert-title-area">
@@ -606,13 +604,13 @@
 
             <div class="cert-preview">
                 <div class="cert-preview-img" onclick="openModal('certificate3')">
-                    <img src="{{ url_for('static', filename='Certificate_images/Introduction-of-R.jpg') }}"
+                    <img src="static/Certificate_images/Introduction-of-R.jpg"
                          alt="Introduction of R Certificate">
                 </div>
             </div>
 
             <div class="cert-actions">
-                <a href="{{ url_for('static', filename='Certificate_pdf/Introduction-of-R.pdf') }}"
+                <a href="static/Certificate_pdf/Introduction-of-R.pdf"
                    class="cert-btn"
                    download>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
